@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Weather Report</title>
+    <meta charset="UTF-8" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="./style.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+
+  <body>
+    <div class="container my-container">
+      <div class="card my-card">
+        <form id="search-form">
+        <div class="card-body my-card-body">
+          <div class="row">
+            <div class="col">
+              <input 
+                class="form-control"
+                type="text"
+                placeholder="Search here...."
+                id="search-input"
+              />
+            </div>
+            <div class="col">
+              <button class="btn btn-primary" type="submit">Search</button>
+            </div>
+          </div>
+          <br />
+          <br />
+        </form>
+
+          <div class="row">
+            <div class="col-xs-5 col-sm-4">
+              <h1>
+                Singapore
+              </h1>
+              <h6>
+                Sunday 5.00pm<br />
+                Cloudy
+                </h6>
+              <br />
+              <div class="temperature" id="temperature">
+                  🌤 <span id="temperature-value">26</span>
+                <span class ="units">
+                    <sup><a href="#" id="celsius-link">°C</a>
+                    |
+                    <a href="#" id="fahrenheit-link">°F</a> 
+                    </sup>
+                </span>
+              </div>
+            
+            </div>
+
+            <div class="col text-end">
+              <img
+                src="./images/WeatherChart.jpg"
+                alt="weather-chart"
+                height="250"
+              />
+            </div>
+          </div>
+          <br />
+
+          <div class="weekdays">
+            <div class="row">
+              <div class="col days-col">
+                Sun<br />
+                <i class="bi bi-cloud"></i><br />
+                28℃
+              </div>
+
+              <div class="col days-col">
+                Mon<br />
+                <i class="bi bi-cloud-hail"></i><br />
+                30℃
+              </div>
+
+              <div class="col days-col">
+                Tue<br />
+                <i class="bi bi-cloud-sun"></i><br />
+                20℃
+              </div>
+              <div class="col days-col">
+                Wed<br />
+                <i class="bi bi-cloud-moon"></i><br />
+                22℃
+              </div>
+              <div class="col days-col">
+                Thu<br />
+                <i class="bi bi-cloud-lightning-rain-fill"></i><br />
+                32℃
+              </div>
+              <div class="col days-col">
+                Fri<br />
+                <i class="bi bi-clouds-fill"></i><br />
+                30℃
+              </div>
+              <div class="col days-col">
+                Sat<br />
+                <i class="bi bi-cloud-sun-fill"></i><br />
+                35℃
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="/Users/vimalrajselvam/Desktop/bhuvaneswari/Weather-Project/style.js"></script>
+  </body>
+</html>

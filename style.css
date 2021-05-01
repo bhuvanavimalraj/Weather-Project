@@ -1,0 +1,43 @@
+h1 {
+  color: blue;
+  font-size: 30px;
+}
+.temperature {
+  color: blue;
+  font-size: 50px;
+}
+h6 {
+  color: brown;
+}
+
+.weekdays {
+  color: green;
+  font-size: 15px;
+}
+
+i {
+  color: red;
+}
+
+.days-col {
+  text-align: center;
+}
+
+.my-card {
+  background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+}
+
+.my-container {
+  height: 100px;
+  margin-top: 50px;
+}
+
+.units {
+  font-size: 50px;
+}
+
+.units a {
+  color: blueviolet;
+  text-decoration: none;
+  cursor: pointer;
+}
