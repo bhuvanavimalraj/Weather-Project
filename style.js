@@ -93,7 +93,7 @@ fahrenheit.addEventListener("click", calculateFahrenheit);
 function displayForecast() {
   let forecastElement = document.querySelector("#forecast");
 
-  let days = ["sun", "mon", "tue", "wed", "thu"];
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
   let forecastHTML = `<div class ="row">`;
 
