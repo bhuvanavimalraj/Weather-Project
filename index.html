@@ -22,45 +22,56 @@
   <body>
     <div class="container my-container">
       <div class="card my-card">
-        <form id="search-form">
         <div class="card-body my-card-body">
-          <div class="row">
-            <div class="col">
-              <input 
-                class="form-control"
-                type="text"
-                placeholder="Search here...."
-                id="search-input"
-              />
+          <form id="search-form">
+            <div class="row">
+              <div class="col">
+                <input
+                  class="form-control"
+                  type="text"
+                  placeholder="Search here...."
+                  id="search-input"
+                />
+              </div>
+              <div class="col">
+                <button class="btn btn-primary" type="submit">Search</button>
+              </div>
             </div>
-            <div class="col">
-              <button class="btn btn-primary" type="submit">Search</button>
-            </div>
-          </div>
-          <br />
-          <br />
-        </form>
+            <br />
+            <br />
+          </form>
 
           <div class="row">
             <div class="col-xs-5 col-sm-4">
-              <h1>
-                Singapore
-              </h1>
+              <h1>Singapore</h1>
               <h6>
                 Sunday 5.00pm<br />
                 Cloudy
-                </h6>
+              </h6>
               <br />
-              <div class="temperature" id="temperature">
-                  🌤 <span id="temperature-value">26</span>
-                <span class ="units">
-                    <sup><a href="#" id="celsius-link">°C</a>
-                    |
-                    <a href="#" id="fahrenheit-link">°F</a> 
-                    </sup>
-                </span>
-              </div>
-            
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-6 temperature" id="temperature">
+              🌤 <span id="temperature-value">26</span>
+              <span class="units">
+                <sup
+                  ><a href="#" id="celsius-link">°C</a>
+                  |
+                  <a href="#" id="fahrenheit-link">°F</a>
+                </sup>
+              </span>
+            </div>
+
+            <div class="col-6">
+              <ul>
+                <li>Precipitation:0%;</li>
+                <li>Humidity:73%;</li>
+                <!-- <li>
+                  Wind-Speed:2km/h;
+                </li> -->
+              </ul>
             </div>
 
             <!-- <div class="col text-end">
@@ -85,8 +96,6 @@
                 <span class="weather-forecast-temperatures-min">12℃</span>
               </div>
             </div> -->
-          
-
 
             <!-- <div class="row">
               <div class="col days-col">
@@ -130,7 +139,14 @@
           </div>
         </div>
       </div>
-      <p><a href="https://github.com/bhuvanavimalraj/Weather-Project" target="blank">Open Source Code</a> by Bhuvaneswari</p>
+      <p>
+        <a
+          href="https://github.com/bhuvanavimalraj/Weather-Project"
+          target="blank"
+          >Open Source Code</a
+        >
+        by Bhuvaneswari
+      </p>
     </div>
     <script src="./style.js"></script>
   </body>
