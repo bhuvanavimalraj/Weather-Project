@@ -10,10 +10,26 @@ h6 {
   color: brown;
 }
 
-.weekdays {
-  color: green;
-  font-size: 15px;
+/* Weather forecast */
+.weather-forecast {
+  /* color: green;
+  font-size: 15px; */
+  margin-top: 20px;
+  text-align: center;
+  color: black;
 }
+.weather-forecast-date {
+  font-size: 16px;
+  opacity: 0.5;
+}
+.weather-forecast-temperatures-max {
+  font-size: 13px;
+}
+.weather-forecast-temperatures-min {
+  opacity: 0.5;
+  font-size: 13px;
+}
+/* Forecast design over */
 
 i {
   color: red;
