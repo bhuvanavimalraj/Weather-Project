@@ -1,41 +1,18 @@
-let weather = {
-  paris: {
-    temp: 19.7,
-    humidity: 80,
-  },
-  tokyo: {
-    temp: 17.3,
-    humidity: 50,
-  },
-  lisbon: {
-    temp: 30.2,
-    humidity: 20,
-  },
-  "san francisco": {
-    temp: 20.9,
-    humidity: 100,
-  },
-  moscow: {
-    temp: -5,
-    humidity: 20,
-  },
-};
-
-// Searching function here
+// Update function here
 let apiKey = "a3a52cc6f810ba9bb9deaaefe37a7628";
-
-let globalTemperature = 0;
 
 function update(response) {
   let { data } = response;
-  //console.log(data.name, data.main.temp);
-  let h1 = document.querySelector("h1");
-  h1.innerHTML = `${data.name}`;
+  console.log(data.name, data.main.temp, data.weather[0].description);
 
-  globalTemperature = Math.round(data.main.temp);
+  let cityElement = document.querySelector("#city");
+  cityElement.innerHTML = `${data.name}`;
 
   let temperature = document.querySelector("#temperature-value");
-  temperature.innerHTML = globalTemperature;
+  temperature.innerHTML = Math.round(response.data.main.temp);
+
+  let descriptionElement = document.querySelector("#description");
+  descriptionElement.innerHTML = `${data.weather[0].description}`;
 }
 
 function search(event) {
@@ -70,8 +47,8 @@ let hours = now.getHours();
 
 let minutes = now.getMinutes();
 
-currentConditionElement.innerHTML = `<li>${day} ${hours}:${minutes}</li><li>Partly Cloudy</li>`;
-console.log(hours);
+// currentConditionElement.innerHTML = `<li>${day} ${hours}:${minutes}</li><li>Partly Cloudy</li>`;
+//console.log(hours);
 
 // Celsius and Fahrenheit Calculate
 function calculateCelsius(event) {
