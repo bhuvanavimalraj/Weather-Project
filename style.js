@@ -3,7 +3,15 @@ let apiKey = "a3a52cc6f810ba9bb9deaaefe37a7628";
 
 function update(response) {
   let { data } = response;
-  console.log(data.name, data.main.temp, data.weather[0].description);
+  console.log(
+    data.name,
+    data.main.temp,
+    data.weather[0].description,
+    data.sys.country,
+    data.main.humidity,
+    data.wind.speed,
+    data
+  );
 
   let cityElement = document.querySelector("#city");
   cityElement.innerHTML = `${data.name}`;
@@ -13,8 +21,45 @@ function update(response) {
 
   let descriptionElement = document.querySelector("#description");
   descriptionElement.innerHTML = `${data.weather[0].description}`;
+
+  let countryElement = document.querySelector("#country");
+  countryElement.innerHTML = `${data.sys.country}`;
+
+  let humidityElement = document.querySelector("#humidity");
+  humidityElement.innerHTML = response.data.main.humidity;
+
+  let windElement = document.querySelector("#wind");
+  windElement.innerHTML = Math.round(`${response.data.wind.speed}`);
+
+  let dateElement = document.querySelector("#date");
+  dateElement.innerHTML = formatDate(response.data.dt * 1000);
 }
 
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[date.getDay()];
+
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+
+  return `${day} ${hours}:${minutes}`;
+}
 function search(event) {
   event.preventDefault();
 
@@ -28,26 +73,9 @@ function search(event) {
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", search);
 
-// Date update here
-let now = new Date();
-let currentConditionElement = document.querySelector(".current-condition");
-let days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
 // console.log(days[3]);
-let day = days[now.getDay()];
 
-let hours = now.getHours();
-
-let minutes = now.getMinutes();
-
-// currentConditionElement.innerHTML = `<li>${day} ${hours}:${minutes}</li><li>Partly Cloudy</li>`;
+// currentConditionElement.innerHTML = `<li></li><li>Partly Cloudy</li>`;
 //console.log(hours);
 
 // Celsius and Fahrenheit Calculate
