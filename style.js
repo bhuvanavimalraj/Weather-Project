@@ -24,13 +24,18 @@ let weather = {
 // Searching function here
 let apiKey = "a3a52cc6f810ba9bb9deaaefe37a7628";
 
+let globalTemperature = 0;
+
 function update(response) {
   let { data } = response;
   //console.log(data.name, data.main.temp);
   let h1 = document.querySelector("h1");
   h1.innerHTML = `${data.name}`;
+
+  globalTemperature = Math.round(data.main.temp);
+
   let temperature = document.querySelector("#temperature-value");
-  temperature.innerHTML = Math.round(data.main.temp);
+  temperature.innerHTML = globalTemperature;
 }
 
 function search(event) {
@@ -48,7 +53,7 @@ form.addEventListener("submit", search);
 
 // Date update here
 let now = new Date();
-let h6 = document.querySelector("h6");
+let currentConditionElement = document.querySelector(".current-condition");
 let days = [
   "Sunday",
   "Monday",
@@ -65,15 +70,14 @@ let hours = now.getHours();
 
 let minutes = now.getMinutes();
 
-h6.innerHTML = `${day} ${hours}:${minutes}<br>Partly Cloudy</br>`;
+currentConditionElement.innerHTML = `<li>${day} ${hours}:${minutes}</li><li>Partly Cloudy</li>`;
 console.log(hours);
 
 // Celsius and Fahrenheit Calculate
 function calculateCelsius(event) {
   event.preventDefault();
-  let searchInput = document.querySelector("#search-input");
   let temperature = document.querySelector("#temperature-value");
-  temperature.innerHTML = weather[searchInput.value.toLowerCase()].temp;
+  temperature.innerHTML = globalTemperature;
 }
 
 function calculateFahrenheit(event) {
