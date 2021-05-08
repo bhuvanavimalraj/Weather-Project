@@ -3,15 +3,15 @@ let apiKey = "a3a52cc6f810ba9bb9deaaefe37a7628";
 
 function update(response) {
   let { data } = response;
-  console.log(
-    data.name,
-    data.main.temp,
-    data.weather[0].description,
-    data.sys.country,
-    data.main.humidity,
-    data.wind.speed,
-    data
-  );
+  // console.log(
+  //   data.name,
+  //   data.main.temp,
+  //   data.weather[0].description,
+  //   data.sys.country,
+  //   data.main.humidity,
+  //   data.wind.speed,
+  //   data
+  // );
 
   let cityElement = document.querySelector("#city");
   cityElement.innerHTML = `${data.name}`;
@@ -72,11 +72,6 @@ function search(event) {
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", search);
-
-// console.log(days[3]);
-
-// currentConditionElement.innerHTML = `<li></li><li>Partly Cloudy</li>`;
-//console.log(hours);
 
 // Celsius and Fahrenheit Calculate
 function calculateCelsius(event) {
