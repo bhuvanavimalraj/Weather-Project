@@ -1,38 +1,71 @@
-let weather = {
-  paris: {
-    temp: 19.7,
-    humidity: 80,
-  },
-  tokyo: {
-    temp: 17.3,
-    humidity: 50,
-  },
-  lisbon: {
-    temp: 30.2,
-    humidity: 20,
-  },
-  "san francisco": {
-    temp: 20.9,
-    humidity: 100,
-  },
-  moscow: {
-    temp: -5,
-    humidity: 20,
-  },
-};
-
-// Searching function here
+// Update function here
 let apiKey = "a3a52cc6f810ba9bb9deaaefe37a7628";
 
 function update(response) {
   let { data } = response;
-  //console.log(data.name, data.main.temp);
-  let h1 = document.querySelector("h1");
-  h1.innerHTML = `${data.name}`;
+  console.log(
+    data.name,
+    //   data.main.temp,
+    //   data.weather[0].description,
+    //   data.sys.country,
+    //   data.main.humidity,
+    //   data.wind.speed,
+    data
+  );
+
+  let cityElement = document.querySelector("#city");
+  cityElement.innerHTML = `${data.name}`;
+
   let temperature = document.querySelector("#temperature-value");
-  temperature.innerHTML = Math.round(data.main.temp);
+  temperature.innerHTML = Math.round(response.data.main.temp);
+
+  let descriptionElement = document.querySelector("#description");
+  descriptionElement.innerHTML = `${data.weather[0].description}`;
+
+  let countryElement = document.querySelector("#country");
+  countryElement.innerHTML = `${data.sys.country}`;
+
+  let humidityElement = document.querySelector("#humidity");
+  humidityElement.innerHTML = response.data.main.humidity;
+
+  let windElement = document.querySelector("#wind");
+  windElement.innerHTML = Math.round(`${response.data.wind.speed}`);
+
+  let dateElement = document.querySelector("#date");
+  dateElement.innerHTML = formatDate(response.data.dt * 1000);
+
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
+  );
 }
 
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[date.getDay()];
+
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+
+  return `${day} ${hours}:${minutes}`;
+}
 function search(event) {
   event.preventDefault();
 
@@ -46,34 +79,11 @@ function search(event) {
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", search);
 
-// Date update here
-let now = new Date();
-let h6 = document.querySelector("h6");
-let days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-// console.log(days[3]);
-let day = days[now.getDay()];
-
-let hours = now.getHours();
-
-let minutes = now.getMinutes();
-
-h6.innerHTML = `${day} ${hours}:${minutes}<br>Partly Cloudy</br>`;
-console.log(hours);
-
 // Celsius and Fahrenheit Calculate
 function calculateCelsius(event) {
   event.preventDefault();
-  let searchInput = document.querySelector("#search-input");
   let temperature = document.querySelector("#temperature-value");
-  temperature.innerHTML = weather[searchInput.value.toLowerCase()].temp;
+  temperature.innerHTML = globalTemperature;
 }
 
 function calculateFahrenheit(event) {
