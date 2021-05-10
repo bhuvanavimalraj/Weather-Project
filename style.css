@@ -78,7 +78,9 @@ i {
 }
 
 .units {
-  font-size: 50px;
+  font-size: 18px;
+  top: -20px;
+  position: relative;
 }
 
 .units a {
