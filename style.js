@@ -45,7 +45,6 @@ function update(response) {
 
   let dateElement = document.querySelector("#date");
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
-<<<<<<< HEAD
 
   let iconElement = document.querySelector("#icon");
   iconElement.setAttribute(
@@ -53,8 +52,6 @@ function update(response) {
     `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", data.weather[0].description);
-=======
->>>>>>> 18fd7e80ffecb1c22aeac75d19020117c7d20eb8
 }
 
 function formatDate(timestamp) {
