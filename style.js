@@ -3,27 +3,15 @@ let apiKey = "a3a52cc6f810ba9bb9deaaefe37a7628";
 
 function update(response) {
   let { data } = response;
-<<<<<<< HEAD
-  console.log(
-    data.name,
-    //   data.main.temp,
-    //   data.weather[0].description,
-    //   data.sys.country,
-    //   data.main.humidity,
-    //   data.wind.speed,
-    data
-  );
-=======
   // console.log(
   //   data.name,
-  //   data.main.temp,
-  //   data.weather[0].description,
-  //   data.sys.country,
-  //   data.main.humidity,
-  //   data.wind.speed,
+  //   //   data.main.temp,
+  //   //   data.weather[0].description,
+  //   //   data.sys.country,
+  //   //   data.main.humidity,
+  //   //   data.wind.speed,
   //   data
   // );
->>>>>>> 18fd7e80ffecb1c22aeac75d19020117c7d20eb8
 
   let cityElement = document.querySelector("#city");
   cityElement.innerHTML = `${data.name}`;
@@ -51,7 +39,7 @@ function update(response) {
     "src",
     `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
   );
-  iconElement.setAttribute("alt", data.weather[0].description);
+  iconElement.setAttribute("alt", `${data.weather[0].description}`);
 }
 
 function formatDate(timestamp) {
