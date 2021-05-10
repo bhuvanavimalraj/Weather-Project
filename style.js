@@ -16,7 +16,7 @@ function update(response) {
   let cityElement = document.querySelector("#city");
   cityElement.innerHTML = `${data.name}`;
 
-  let temperature = document.querySelector("#temperature-value");
+  let temperature = document.querySelector("#temperature-value > span");
   temperature.innerHTML = Math.round(response.data.main.temp);
 
   let descriptionElement = document.querySelector("#description");
