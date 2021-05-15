@@ -22,73 +22,75 @@
   </head>
 
   <body>
-    <div class="container my-container">
-      <div class="card weather-app-rapper">
-        <div class="card-body weather-app">
-          <form id="search-form">
+    <div class="my-container">
+      <div class="container">
+        <div class="card weather-app-rapper">
+          <div class="card-body weather-app">
+            <form id="search-form">
+              <div class="row">
+                <div class="col">
+                  <input
+                    class="form-control"
+                    type="text"
+                    placeholder="Search here...."
+                    id="search-input"
+                    autocomplete="on"
+                  />
+                </div>
+                <div class="col">
+                  <button class="btn btn-primary" type="submit">Search</button>
+                </div>
+              </div>
+              <br />
+              <br />
+            </form>
+
             <div class="row">
-              <div class="col">
-                <input
-                  class="form-control"
-                  type="text"
-                  placeholder="Search here...."
-                  id="search-input"
-                  autocomplete="on"
-                />
-              </div>
-              <div class="col">
-                <button class="btn btn-primary" type="submit">Search</button>
+              <div class="overview">
+                <h1 id="city">Singapore</h1>
+                <ul>
+                  <li>Last Updated: <span id="date"></span></li>
+                  <li id="description">Clear sky</li>
+                </ul>
               </div>
             </div>
-            <br />
-            <br />
-          </form>
 
-          <div class="row">
-            <div class="overview">
-              <h1 id="city">Singapore</h1>
-              <ul>
-                <li>Last Updated: <span id="date"></span></li>
-                <li id="description">Clear sky</li>
-              </ul>
-            </div>
-          </div>
+            <div class="row temp-row">
+              <div class="col-6 temperature" id="temperature">
+                <div class="weather-temperature">
+                  <img scr="" alt="" id="icon" width="68px" height="68px" />
 
-          <div class="row temp-row">
-            <div class="col-6 temperature" id="temperature">
-              <div class="weather-temperature">
-                <img scr="" alt="" id="icon" width="68px" height="68px" />
-
-                <span id="temperature-value">
-                  <span></span>
-                  <span class="units">
-                    <a href="#" id="celsius-link">°C</a> |
-                    <a href="#" id="fahrenheit-link">°F</a>
+                  <span id="temperature-value">
+                    <span id="temp">10</span>
+                    <span class="units">
+                      <a href="#" id="celsius-link">°C</a> |
+                      <a href="#" id="fahrenheit-link">°F</a>
+                    </span>
                   </span>
-                </span>
+                </div>
+              </div>
+              <div class="col-6 speed">
+                <ul>
+                  <li>Country: "<span id="country"></span>"</li>
+                  <li>Humidity: <span id="humidity"></span>%</li>
+                  <li>Wind-Speed: <span id="wind"></span> km/h</li>
+                </ul>
               </div>
             </div>
-            <div class="col-6 speed">
-              <ul>
-                <li>Country: "<span id="country"></span>"</li>
-                <li>Humidity: <span id="humidity"></span>%</li>
-                <li>Wind-Speed: <span id="wind"></span> km/h</li>
-              </ul>
-            </div>
-          </div>
-          <br />
+            <br />
 
-          <!-- <div class="weekdays"> -->
-          <div class="weather-forecast" id="forecast"></div>
+            <!-- <div class="weekdays"> -->
+            <div class="weather-forecast" id="forecast"></div>
+          </div>
+          <small>
+            <a
+              href="https://github.com/bhuvanavimalraj/Weather-Project"
+              target="_blank"
+              >Open Source Code</a
+            >
+            by Bhuvaneswari
+          </small>
         </div>
-        <small>
-          <a
-            href="https://github.com/bhuvanavimalraj/Weather-Project"
-            target="_blank"
-            >Open Source Code</a
-          >
-          by Bhuvaneswari
-        </small>
       </div>
     </div>
     <script src="./style.js"></script>
