@@ -10,15 +10,15 @@ let fahrenheit = document.querySelector("#fahrenheit-link");
 // Event Listeners
 form.addEventListener("submit", search);
 celsius.addEventListener("click", calculateCelsius);
-fahrenheit.addEventListener("click", calculateFahrenheit);
+// fahrenheit.addEventListener("click", calculateFahrenheit);
 
 // Methods
 
 function getForecast(coordinates) {
-  console.log(coordinates);
+  // console.log(coordinates);
 
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
-  console.log(apiUrl);
+  // console.log(apiUrl);
 
   axios.get(apiUrl).then(displayForecast);
 }
@@ -103,7 +103,7 @@ function search(event) {
   axios.get(`${apiUrl}&appid=${apiKey}`).then(update);
 }
 
-// Celsius and Fahrenheit Calculate
+// Celsius Calculation:
 function calculateCelsius(event) {
   event.preventDefault();
 
@@ -114,17 +114,17 @@ function calculateCelsius(event) {
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
 
-function calculateFahrenheit(event) {
-  event.preventDefault();
+// function calculateFahrenheit(event) {
+//   event.preventDefault();
 
-  // let temperature = document.querySelector("#temperature-value");
+//   // let temperature = document.querySelector("#temperature-value");
 
-  celsius.classList.remove("active");
-  fahrenheit.classList.add("active");
+//   celsius.classList.remove("active");
+//   fahrenheit.classList.add("active");
 
-  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
-  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
-}
+//   let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+//   temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+// }
 
 // weather forecast function start here
 function formatDay(timestamp) {
@@ -135,7 +135,7 @@ function formatDay(timestamp) {
 }
 
 function displayForecast(response) {
-  console.log(response);
+  // console.log(response);
   let forecast = response.data.daily;
 
   let forecastElement = document.querySelector("#forecast");
@@ -159,10 +159,10 @@ function displayForecast(response) {
 
         <span class="weather-forecast-temperatures-max">${Math.round(
           forecastDay.temp.max
-        )} &deg;<span style="font-size:12px">C</span></span>
+        )} &deg;<span style="font-size:12px"></span></span>
         <span class="weather-forecast-temperatures-min">${Math.round(
           forecastDay.temp.min
-        )} &deg;<span style="font-size:12px">C</span></span>
+        )} &deg;<span style="font-size:12px"></span></span>
       </div>
       `;
     }
